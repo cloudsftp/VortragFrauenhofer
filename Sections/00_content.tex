@@ -36,7 +36,7 @@
 \begin{frame}{Model in Concrete Time}
 	\vspace{-1em}
 	\begin{columns}
-		\begin{column}{.7 \textwidth}
+		\begin{column}{.6 \textwidth}
 			\begin{align*}
 				(q \cos(\tau) - \chi_{c}) \cdot e^{z^{+}}                      = q \cos(\tau + z^{+}) - \chi_{0}            \\
 				(q \cos(\tau + z^{+}) - \chi_{0} - 1) \cdot e^{z_{1}^{+}}      + 1  =                                \qquad \\
@@ -46,9 +46,36 @@
 				\hfill q \cos(\tau + z^{+} + z_{2}^{+}) + \chi_{c}
 			\end{align*}
 		\end{column}
+		\begin{column}{.4 \textwidth}
+			\begin{figure}
+				\includegraphics[width=0.9 \textwidth]{Figs/discrete_model_derivation.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+	\flushright{[Avrutin]}
+\end{frame}
+
+\begin{frame}{Model in Concrete Time}
+	\vspace{-1em}
+	\begin{columns}
+		\begin{column}{.5 \textwidth}
+			\begin{align*}
+				\tau \mapsto  \tau + \begin{cases}
+					                     z^{+} + z_{1}^{+}     & \text{if } z^{+} \leq z_{0}^{+} \\
+					                     z_{0}^{+} + z_{2}^{+} & \text{if } z^{+} > z_{0}^{+}
+				                     \end{cases}
+			\end{align*}
+			\vspace{1em}
+
+			Repeat the whole process to get
+			\begin{align*}
+				z^{-}, z_{1}^{-}, z_{0}^{-}, \text{ and } z_{2}^{-}
+			\end{align*}
+		\end{column}
 		\begin{column}{.5 \textwidth}
 			\begin{figure}
-				\includegraphics[width=0.7 \textwidth]{Figs/discrete_model_derivation.png}
+				\includegraphics[width=1 \textwidth]{Figs/discrete_model_derivation_cases.png}
 			\end{figure}
 		\end{column}
 	\end{columns}
