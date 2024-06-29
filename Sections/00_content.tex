@@ -4,10 +4,47 @@
 	\tableofcontents
 \end{frame}
 
-\input{Sections/01_og.tex}
-\input{Sections/02_archetypal.tex}
-\input{Sections/03_adding_in_model.tex}
-\input{Sections/04_halved.tex}
-\input{Sections/05_conclusion.tex}
+\sectionframe{Context of my Masters Thesis}
+\section{Context}
+
+\begin{frame}{Model in Continuous Time}
+
+	\begin{columns}
+		\begin{column}{.3 \textwidth}
+			\begin{align*}
+				\overset{\cdot}{x} & = \lambda (x - 1) \quad & \text{if } & K_{F} = +1 \\
+				\overset{\cdot}{x} & = \lambda x       \quad & \text{if } & K_{F} = 0  \\
+				\overset{\cdot}{x} & = \lambda (x + 1) \quad & \text{if } & K_{F} = -1
+			\end{align*}
+
+			Switching at
+			\begin{align*}
+				V_{ref} \pm \chi_{c} \\
+				V_{ref} \pm \chi_{0}
+			\end{align*}
+		\end{column}
+		\begin{column}{.7 \textwidth}
+			\begin{figure}
+				\includegraphics[width=0.7 \textwidth]{Figs/continuous_model.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\sectionframe{My Contributions}
+\section{Contributions}
+
+\sectionframe{Current Development}
+\section{Current}
+
+%\input{Sections/01_og.tex}
+%\input{Sections/02_archetypal.tex}
+%\input{Sections/03_adding_in_model.tex}
+%\input{Sections/04_halved.tex}
+%\input{Sections/05_conclusion.tex}
 
 \thanksframe
+
+%%% Local Variables:
+%%% TeX-master: "../Vortrag_Frauenhofer_Weik"
+%%% End:
