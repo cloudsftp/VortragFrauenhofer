@@ -8,7 +8,7 @@
 \section{Context}
 
 \begin{frame}{Model in Continuous Time}
-
+	\vspace{-1em}
 	\begin{columns}
 		\begin{column}{.3 \textwidth}
 			\begin{align*}
@@ -27,8 +27,33 @@
 			\begin{figure}
 				\includegraphics[width=0.7 \textwidth]{Figs/continuous_model.png}
 			\end{figure}
+
+			\flushright{[Zhusubaliyev]}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}{Model in Concrete Time}
+	\vspace{-1em}
+	\begin{columns}
+		\begin{column}{.7 \textwidth}
+			\begin{align*}
+				(q \cos(\tau) - \chi_{c}) \cdot e^{z^{+}}                      = q \cos(\tau + z^{+}) - \chi_{0}            \\
+				(q \cos(\tau + z^{+}) - \chi_{0} - 1) \cdot e^{z_{1}^{+}}      + 1  =                                \qquad \\
+				q \cos(\tau + z^{+} + z_{1}^{+}) - \chi_{c}                                                                 \\\\
+				(q \cos(\tau) - \chi_{c}) \cdot e^{z_{0}^{+}}                  = q \cos(\tau + z_{0}^{+}) + \chi_{0}        \\
+				(q \cos(\tau + z_{0}^{+}) + \chi_{0} + 1) \cdot e^{z_{2}^{+}}  - 1  =                               \qquad  \\
+				\hfill q \cos(\tau + z^{+} + z_{2}^{+}) + \chi_{c}
+			\end{align*}
+		\end{column}
+		\begin{column}{.5 \textwidth}
+			\begin{figure}
+				\includegraphics[width=0.7 \textwidth]{Figs/discrete_model_derivation.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+	\flushright{[Avrutin]}
 \end{frame}
 
 \sectionframe{My Contributions}
