@@ -114,6 +114,78 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Halved Model}
+	\vspace{-1em}
+	\begin{columns}
+		\begin{column}{.4 \textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{Figs/archetypal_model_lifted.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5 \textwidth}
+			\begin{itemize}
+				\item Lift the model from $[0, 1)$ to $\mathbb{R}$
+				      %\item The lifted model repeats every $1$ step
+				      %\item But it even repeats every $\frac{1}{2}$ step because of the built-in symmetry
+				\item Drop the model to $[0, \frac{1}{2})$
+				\item[$\Rightarrow$] Halved Model
+			\end{itemize}
+			\begin{align*}
+				x    & \mapsto g(x) \mod \frac{1}{2}                                              \\
+				g(x) & = \begin{cases}
+					         g_L(x) = a_L \cdot x^2 + b_L \cdot x + c_L & \text{ if } x < \frac{1}{4} \\
+					         g_R(x) = b_R \cdot x + c_R                 & \text{ else}
+				         \end{cases}
+			\end{align*}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Period Adding}
+	\vspace{-1em}
+	\begin{figure}
+		\includegraphics[width=.4 \textwidth]{Figs/archetypal_model_halved_add_hor_2D.png}
+		\quad
+		\includegraphics[width=.4 \textwidth]{Figs/archetypal_model_halved_add_hor_1D.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Period Adding}
+	\vspace{-1em}
+	\begin{figure}
+		\includegraphics[width=.6 \textwidth]{Figs/Trees/HalvedArchetypal/adding.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Period Adding Like}
+	\vspace{-1em}
+	\begin{center}
+		\begin{tikzpicture}[every text node part/.style={align=center}]
+			\node (FC) at (0, 2) {Cycles in Full Model \\ $\A, \B, \C, \D$};
+			\node (FB) at (7, 2) {Bifurcation Structure};
+
+			\node (HC) at (0, 0) {Cycles in Halved Model \\ $\L, \R$};
+			\node (HA) at (7, 0) {Period-adding Structure};
+
+			\draw[->] (FC) -- (HC) node[midway,right] {\tiny translate};
+			\draw[->] (HC) -- (HA) node[midway,above] {\tiny explained};
+			\draw[->] (HA) -- (FB) node[midway,right] {\tiny translate};
+			\draw[->] (FC) -- (FB) node[midway,above] {\tiny ???};
+		\end{tikzpicture}
+	\end{center}
+
+	\begin{itemize}
+		\item Algorithms for translating cycles between both models
+		\item Formal description of novel bifurcation structure
+		      \begin{itemize}
+			      \item When do cycles coexist?
+			      \item Symbolic Sequences
+			      \item Periods
+			      \item Rotational Numbers (here actually tuples)
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../Vortrag_Frauenhofer_Weik"
