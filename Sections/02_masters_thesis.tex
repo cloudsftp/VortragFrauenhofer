@@ -315,13 +315,22 @@
 		\coordinate (bl) at (3, -2.5);
 		\coordinate (br) at (9, -2.5);
 		%
-		\only<1-3>{
+		\only<1-4>{
 			\node (sigma) at (al) {$\sigma$};
-			\node (s4sigma) at (ar) {$s_{4}\left(\sigma\right)$};
+			\node (s4sigma) at (ar) {$s_{2}^{2}\left(\sigma\right)$};
+			\draw[->] (sigma) -- (s4sigma) node[midway,above=0.2em,scale=0.5] {$s_{2}^{2}$};
 		}
-		\only<2-3>{
-			\node(phi) at (bl) {$\phi$};
-			\node(phi) at (br) {$s_{4}\left(\phi\right)$};
+		\only<2-4>{
+			\node (phi) at (bl) {$\phi$};
+			\node (s4phi) at (br) {$s_{4}\left(\phi\right)$};
+			\draw[->] (sigma) -- (phi) node[midway,right=0.5em,scale=0.5] {$T$};
+			\draw[->] (s4sigma) -- (s4phi) node[midway,right=0.5em,scale=0.5] {$T$};
+		}
+		\only<3>{
+			\draw[->] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$s_{4}$};
+		}
+		\only<4>{
+			\draw[double equal sign distance] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
 		}
 		%
 	\end{tikzpicture}
@@ -375,11 +384,10 @@
 		\item Oddly enough, coexistence more natural
 		\item Odd number of rotations (in halved model) $\Rightarrow$ No coexistence (in full model)
 		      \vspace{1em}
-		\item Child of two nodes with coexistence has no coexistence
-		\item Child of two nodes with no coexistence has no coexistence
+		\item Child of two nodes with coexistence has coexistence
+		\item Child of two nodes with no coexistence has coexistence
 		\item Child of a node with and a node with no coexistence has coexistence
 	\end{itemize}
-
 \end{frame}
 
 %%% Local Variables:
