@@ -313,22 +313,27 @@
 \end{frame}
 
 \begin{frame}{Translation: At Most Two Coexisting Cycles}
+	\vspace{3em}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-		\path[draw=none] (0,0) -- (12,2);
+		\path[draw=none] (0,0) -- (14,-3);
 		%
 		\coordinate (al) at (3, 0);
-		\coordinate (ar) at (9, 0);
+		\coordinate (ar) at (11, 0);
 		\coordinate (bl) at (3, -2.5);
-		\coordinate (br) at (9, -2.5);
+		\coordinate (br) at (11, -2.5);
 		%
 		\only<1>{
 			\node (sigma) at (al) {$\sigma$};
 			\node (s4sigma) at (ar) {$s_{4}\left(\sigma\right)$};
 		}
-		\only<2-7>{
+		\only<2-5>{
 			\node (sigma) at (al) {$\sigma_{1}\sigma_{2} \ldots \sigma_{n}$};
 			\node (s4sigma) at (ar) {$\sigma_{3} \ldots \sigma_{n}\sigma_{1}\sigma_{2}$};
+		}
+		\only<6-7>{
+			\node (sigma) at (al) {$\sigma_{1}\sigma_{2} \ldots \sigma_{2k+1}$};
+			\node (s4sigma) at (ar) {$\sigma_{3} \ldots \sigma_{2k+1}\sigma_{1}\sigma_{2}$};
 		}
 		\only<3-5>{
 			\node[scale=0.6] (phi) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{n-1}\sigma_{n}\right)$};
@@ -341,12 +346,12 @@
 			\draw[->] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$s_{4}$};
 		}
 		\only<6>{
-			\node[scale=0.4] (phi) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{n}\sigma_{1}\right)  \ldots t\left(\sigma_{n-1}\sigma_{n}\right)$};
-			\node[scale=0.4] (s4phi) at (br) {$t\left(\sigma_{3}\sigma_{4}\right) \ldots t\left(\right) \ldots t\left(\sigma_{n-1}\sigma_{n}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
+			\node[scale=0.5] (phi) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right)  \ldots t\left(\sigma_{2k}\sigma_{2k+1}\right)$};
+			\node[scale=0.5] (s4phi) at (br) {$t\left(\sigma_{3}\sigma_{4}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right) \ldots t\left(\sigma_{2k}\sigma_{2k+1}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
 		}
 		\only<7>{
-		\node[scale=0.6] (phi) at (bl) {$\phi_{1} \ldots \phi_{\frac{n}{2}-1} t\left(\sigma_{n}\sigma_{1}\right) \phi'_{1}  \ldots \phi'_{n}$};
-		\node[scale=0.6] (s4phi) at (br) {$\phi_{1} \ldots t\left(\right) \ldots t\left(\sigma_{n-1}\sigma_{n}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
+		\node[scale=0.6] (phi) at (bl) {$\phi_{1} \ldots \phi_{k} t\left(\sigma_{2k+1}\sigma_{1}\right) \phi'_{1}  \ldots \phi'_{k}$};
+		\node[scale=0.6] (s4phi) at (br) {$\phi_{1} \ldots t\left(\sigma_{2k+1}\sigma_{1}\right) \ldots t\left(\sigma_{2k}\sigma_{2k+1}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
 		}
 		\only<5-7>{
 			\draw[double equal sign distance] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
@@ -381,19 +386,19 @@
 			\node (s2sigma) at (ar) {$s_{2}\left(\sigma\right)$};
 		}
 		\only<2-6>{
-			\node (sigma) at (al) {$\sigma_{1}\sigma_{2}\ldots\sigma_{2n+1}$};
+			\node (sigma) at (al) {$\sigma_{1}\sigma_{2}\ldots\sigma_{2k+1}$};
 			\node (s2sigma) at (ar) {$\sigma_{2}\ldots\sigma_{2k+1}\sigma_{1}$};
 		}
 		\only<3>{
-			\node[scale=0.4] (phia) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2n+1}\sigma_{1}\right) t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2n+1}\right)$};
-			\node[scale=0.4] (phib) at (br) {$t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2n+1}\right) t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2n+1}\sigma_{1}\right)$};
+			\node[scale=0.4] (phia) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right) t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2k+1}\right)$};
+			\node[scale=0.4] (phib) at (br) {$t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2k+1}\right) t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right)$};
 		}
 		\only<4-6>{
-		\node[scale=0.6] (phia) at (bl) {$\phi_{1} \ldots \phi_{n} t(\sigma_{2n+1}\sigma_{1}) \phi'_{1} \ldots \phi'_{n}$};
-		\node[scale=0.6] (phib) at (br) {$\phi'_{1} \ldots \phi'_{n} \phi_{1} \ldots \phi_{n} t(\sigma_{2n+1}\sigma_{1})$};
+		\node[scale=0.6] (phia) at (bl) {$\phi_{1} \ldots \phi_{n} t(\sigma_{2k+1}\sigma_{1}) \phi'_{1} \ldots \phi'_{n}$};
+		\node[scale=0.6] (phib) at (br) {$\phi'_{1} \ldots \phi'_{n} \phi_{1} \ldots \phi_{n} t(\sigma_{2k+1}\sigma_{1})$};
 		}
 		\only<5>{
-			\draw[->] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$s_{4}^{n+1}$};
+			\draw[->] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$s_{4}^{k+1}$};
 		}
 		\only<6>{
 			\draw[double equal sign distance] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
