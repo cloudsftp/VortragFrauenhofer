@@ -200,7 +200,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Translation of Symbolic Sequences [Type A]}
+\begin{frame}{Translation Type A (Symmetric Cycle)}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
 		\path[draw=none] (0,0) -- (12,2);
@@ -215,7 +215,7 @@
 		}
 		\only<2>{
 			\draw [decorate,decoration={brace,mirror}] (4.3, -0.8) -- (7.7, -0.8);
-			\node at (6, -1.5) {4-Silbe};
+			\node at (6, -1.5) {4-Syllable};
 		}
 		\only<3>{
 			\node (cycleB) at (b) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
@@ -234,7 +234,7 @@
 		}
 		\only<6>{
 			\draw [decorate,decoration={brace,mirror}] (5.0, -0.8) -- (7.0, -0.8);
-			\node at (6, -1.5) {2-Silbe};
+			\node at (6, -1.5) {2-Syllable};
 		}
 		\only<7-8>{
 			\node (cycleB) at (b) {$\A^{1}\B^{2}$};
@@ -253,7 +253,7 @@
 	\end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Translation of Symbolic Sequences [Type B]}
+\begin{frame}{Translation Type B (Asymmetric Cycles)}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
 		\path[draw=none] (0,0) -- (12,2);
@@ -262,6 +262,10 @@
 		\coordinate (a_) at (6, -1.5);
 		\coordinate (b) at (6, -2);
 		\coordinate (c) at (6, -3.5);
+		\coordinate (al) at (3, 0);
+		\coordinate (ar) at (9, 0);
+		\coordinate (bl) at (3, -2);
+		\coordinate (br) at (9, -2);
 		%
 		% A1B2C3D4 -> L1R2L3R4
 		%
@@ -270,45 +274,32 @@
 		}
 		\only<2>{
 			\node (cycleB) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
-		}
-		\only<2>{
 			\draw[->] (cycleA) -- (cycleB) node[midway,right=0.5em,scale=0.5] {$T^{-1}$};
 		}
 		%
-		\only<3-5>{
-			\node (cycleA) at (a) {$\A^{3}\B^{4}\C^{1}\D^{2}$};
+		\only<3-7>{
+			\node (cycleAL) at (al) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
+			\node (cycleBL) at (bl) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
+			\node (cycleAR) at (ar) {$\A^{3}\B^{4}\C^{1}\D^{2}$};
 		}
-		\only<4-5>{
-			\node (cycleB) at (b) {$\L^{3}\R^{4}\L^{1}\R^{2}$};
+		\only<3-6>{
+			\draw[->] (cycleAL) -- (cycleBL) node[midway,right=0.5em,scale=0.5] {$T^{-1}$};
+		}
+		\only<4-7>{
+			\node (cycleBR) at (br) {$\L^{3}\R^{4}\L^{1}\R^{2}$};
+		}
+		\only<4-6>{
+			\draw[->] (cycleAR) -- (cycleBR) node[midway,right=0.5em,scale=0.5] {$T^{-1}$};
 		}
 		\only<5>{
-			\node (cycleC) at (c) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
-			\draw[double equal sign distance] (cycleB) -- (cycleC) node[midway,right=0.5em,scale=0.5] {$\equiv_{2}$};
+			\draw[->] (cycleBL) -- (cycleBR) node[midway,above=0.2em,scale=0.5] {$s_{2}$};
 		}
-		\only<4-5>{
-			\draw[->] (cycleA) -- (cycleB) node[midway,right=0.5em,scale=0.5] {$T^{-1}$};
-		}
-		%
-		% L1R2L3R4
-		%
 		\only<6-7>{
-			\node (cycleA) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
+			\draw[double equal sign distance] (cycleBL) -- (cycleBR) node[midway,above=0.2em,scale=0.5] {$\equiv_{2}$};
 		}
 		\only<7>{
-			\node (cycleB) at (b) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
-			\draw[->] (cycleA) -- (cycleB) node[midway,right=0.5em,scale=0.5] {$T$};
-		}
-		%
-		\only<8-10>{
-			\node (cycleA) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
-		}
-		\only<9-10>{
-			\node (cycleB) at (a_) {$\L^{3}\R^{4}\L^{1}\R^{2}$};
-			\draw[double equal sign distance] (cycleA) -- (cycleB) node[midway,right=0.5em,scale=0.5] {$\equiv_{2}$};
-		}
-		\only<10>{
-			\node (cycleC) at (c) {$\A^{3}\B^{4}\C^{1}\D^{2}$};
-			\draw[->] (cycleB) -- (cycleC) node[midway,right=0.5em,scale=0.5] {$T$};
+			\draw[->] (cycleBR) -- (cycleAR) node[midway,right=0.5em,scale=0.5] {$T$};
+			\draw[->] (cycleBL) -- (cycleAL) node[midway,right=0.5em,scale=0.5] {$T$};
 		}
 		%
 	\end{tikzpicture}
