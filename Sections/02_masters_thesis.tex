@@ -200,73 +200,126 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Translation of Symbolic Sequences [Full to Halved]}
-	\vspace{3em}
+\begin{frame}{Translation of Symbolic Sequences [Type A]}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-		\coordinate (a) at (0, 0);
-		\coordinate (b) at (0, -2);
-		\only<1-2>{
-			\node (sigma) at (a) {$\A^{1}\B^{2}\C^{1}\D^{2}$};
-		}
-		\only<1>{
-			\node (phi) at (b) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
+		\path[draw=none] (0,0) -- (12,2);
+		%
+		\coordinate (a) at (6, 0);
+		\coordinate (b) at (6, -2);
+		%
+		% A1B2C1D2 -> L1R2
+		%
+		\only<1-4>{
+			\node (cycleA) at (a) {$\A^{1}\B^{2}\C^{1}\D^{2}$};
 		}
 		\only<2>{
-			\node (phi) at (b) {$\L^{1}\R^{2}$};
+			\draw [decorate,decoration={brace,mirror}] (4.3, -0.8) -- (7.7, -0.8);
+			\node at (6, -1.5) {4-Silbe};
 		}
 		\only<3>{
-			\node (sigma) at (a) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
-			\node (phi) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
+			\node (cycleB) at (b) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
 		}
-		\only<4-5>{
-			\node (sigma) at (a) {$\A^{1}\B^{2}\C^{3}\D^{4}\A^{5}\B^{6}\C^{1}\D^{2}\A^{3}\B^{4}\C^{5}\D^{6}$}};
 		\only<4>{
-			\node (phi) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
+			\node (cycleB) at (b) {$\L^{1}\R^{2}$};
 		}
-		\only<5>{
-			\node (phi) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
+		\only<3-4>{
+			\draw[->] (cycleA) -- (cycleB);
 		}
-		\draw[->] (sigma) -- (phi);
+		%
+		% L1R2
+		%
+		\only<5-8>{
+			\node (cycleA) at (a) {$\L^{1}\R^{2}$};
+		}
+		\only<6>{
+			\draw [decorate,decoration={brace,mirror}] (5.0, -0.8) -- (7.0, -0.8);
+			\node at (6, -1.5) {2-Silbe};
+		}
+		\only<7-8>{
+			\node (cycleB) at (b) {$\A^{1}\B^{2}$};
+		}
+		\only<8>{
+			\node at (8, -2) {???};
+		}
+		\only<9>{
+			\node (cycleA) at (a) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
+			\node (cycleB) at (b) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
+		}
+		\only<7-9>{
+			\draw[->] (cycleA) -- (cycleB);
+		}
+		%
 	\end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Translation of Symbolic Sequences [Halved to Full]}
-	\vspace{3em}
-	\centering
-	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-		\coordinate (a) at (0, 0);
-		\coordinate (b) at (0, -2);
-		\only<1-2>{
-			\node (phi) at (a) {$\L^{1}\R^{2}$};
-		}
-		\only<2>{
-			\node (sigma) at (b) {$\A^{1}\B^{2}$};
-		}
-		\only<4>{
-			\node (phi) at (a) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
-		}
-		\only<4>{
-			\node (sigma) at (b) {$\A^{1}\B^{2}\C^{1}\D^{2}$};
-		}
-		%
-		\only<5>{
-			\node (phi) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
-			\node (sigma) at (b) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
-		}
-		\only<6>{
-			\node (phi) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
-		}
-		\only<7>{
-			\node (phi) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
-		}
-		\only<6-7>{
-			\node (sigma) at (b) {$\A^{1}\B^{2}\C^{3}\D^{4}\A^{5}\B^{6}\C^{1}\D^{2}\A^{3}\B^{4}\C^{5}\D^{6}$}};
-		\only<2-3>{
-			\draw[->] (phi) -- (sigma);
-		}
-	\end{tikzpicture}
-\end{frame}
+%\begin{frame}{Translation of Symbolic Sequences [Full to Halved]}
+%	\vspace{3em}
+%	\centering
+%	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
+%		\coordinate (a) at (0, 0);
+%		\coordinate (b) at (0, -2);
+%		\only<1-2>{
+%			\node (sigma) at (a) {$\A^{1}\B^{2}\C^{1}\D^{2}$};
+%		}
+%		\only<1>{
+%			\node (phi) at (b) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
+%		}
+%		\only<2>{
+%			\node (phi) at (b) {$\L^{1}\R^{2}$};
+%		}
+%		\only<3>{
+%			\node (sigma) at (a) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
+%			\node (phi) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
+%		}
+%		\only<4-5>{
+%			\node (sigma) at (a) {$\A^{1}\B^{2}\C^{3}\D^{4}\A^{5}\B^{6}\C^{1}\D^{2}\A^{3}\B^{4}\C^{5}\D^{6}$}};
+%		\only<4>{
+%			\node (phi) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
+%		}
+%		\only<5>{
+%			\node (phi) at (b) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
+%		}
+%		\draw[->] (sigma) -- (phi);
+%	\end{tikzpicture}
+%\end{frame}
+
+%\begin{frame}{Translation of Symbolic Sequences [Halved to Full]}
+%	\vspace{3em}
+%	\centering
+%	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
+%		\coordinate (a) at (0, 0);
+%		\coordinate (b) at (0, -2);
+%		\only<1-2>{
+%			\node (phi) at (a) {$\L^{1}\R^{2}$};
+%		}
+%		\only<2>{
+%			\node (sigma) at (b) {$\A^{1}\B^{2}$};
+%		}
+%		\only<4>{
+%			\node (phi) at (a) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
+%		}
+%		\only<4>{
+%			\node (sigma) at (b) {$\A^{1}\B^{2}\C^{1}\D^{2}$};
+%		}
+%		%
+%		\only<5>{
+%			\node (phi) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
+%			\node (sigma) at (b) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
+%		}
+%		\only<6>{
+%			\node (phi) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
+%		}
+%		\only<7>{
+%			\node (phi) at (a) {$\L^{1}\R^{2}\L^{3}\R^{4}\L^{5}\R^{6}$};
+%		}
+%		\only<6-7>{
+%			\node (sigma) at (b) {$\A^{1}\B^{2}\C^{3}\D^{4}\A^{5}\B^{6}\C^{1}\D^{2}\A^{3}\B^{4}\C^{5}\D^{6}$}};
+%		\only<2-3>{
+%			\draw[->] (phi) -- (sigma);
+%		}
+%	\end{tikzpicture}
+%\end{frame}
 
 
 \begin{frame}{Coexistence of Cycles}
