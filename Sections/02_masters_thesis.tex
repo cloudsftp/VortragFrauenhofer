@@ -305,6 +305,70 @@
 	\end{tikzpicture}
 \end{frame}
 
+\begin{frame}{Translation: At Most Two Coexisting Cycles}
+	\centering
+	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
+		\path[draw=none] (0,0) -- (12,2);
+		%
+		\coordinate (al) at (3, 0);
+		\coordinate (ar) at (9, 0);
+		\coordinate (bl) at (3, -2.5);
+		\coordinate (br) at (9, -2.5);
+		%
+		\only<1-3>{
+			\node (sigma) at (al) {$\sigma$};
+			\node (s4sigma) at (ar) {$s_{4}\left(\sigma\right)$};
+		}
+		\only<2-3>{
+			\node(phi) at (bl) {$\phi$};
+			\node(phi) at (br) {$s_{4}\left(\phi\right)$};
+		}
+		%
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Translation: No Coexistence when Number of 2-Syllables Odd}
+	\centering
+	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
+		\path[draw=none] (0,0) -- (20,2);
+		%
+		\coordinate (al) at (3, 0);
+		\coordinate (ar) at (10, 0);
+		\coordinate (bl) at (3, -2.5);
+		\coordinate (br) at (10, -2.5);
+		%
+		\only<1>{
+			\node (sigma) at (al) {$\sigma$};
+			\node (s2sigma) at (ar) {$s_{2}\left(\sigma\right)$};
+		}
+		\only<2-6>{
+			\node (sigma) at (al) {$\sigma_{1}\sigma_{2}\ldots\sigma_{2n+1}$};
+			\node (s2sigma) at (ar) {$\sigma_{2}\ldots\sigma_{2n+1}\sigma_{1}$};
+		}
+		\only<3>{
+			\node[scale=0.4] (phia) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2n+1}\sigma_{1}\right) t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2n+1}\right)$};
+			\node[scale=0.4] (phib) at (br) {$t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2n+1}\right) t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2n+1}\sigma_{1}\right)$};
+		}
+		\only<4-6>{
+		\node[scale=0.6] (phia) at (bl) {$\phi_{1} \ldots \phi_{n} t(\sigma_{2n+1}\sigma_{1}) \phi'_{1} \ldots \phi'_{n}$};
+		\node[scale=0.6] (phib) at (br) {$\phi'_{1} \ldots \phi'_{n} \phi_{1} \ldots \phi_{n} t(\sigma_{2n+1}\sigma_{1})$};
+		}
+		\only<5>{
+			\draw[->] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$s_{4}^{n+1}$};
+		}
+		\only<6>{
+			\draw[double equal sign distance] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
+		}
+		\only<1-6>{
+			\draw[->] (sigma) -- (s2sigma) node[midway,above=0.2em,scale=0.5] {$s_{2}$};
+		}
+		\only<3-6>{
+			\draw[->] (sigma) -- (phia) node[midway,right=0.5em,scale=0.5] {$T$};
+			\draw[->] (s2sigma) -- (phib) node[midway,right=0.5em,scale=0.5] {$T$};
+		}
+		%
+	\end{tikzpicture}
+\end{frame}
 
 \begin{frame}{Coexistence of Cycles}
 	\begin{itemize}
