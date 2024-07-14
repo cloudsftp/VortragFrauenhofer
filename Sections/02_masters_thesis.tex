@@ -457,11 +457,49 @@
 \end{frame}
 
 \begin{frame}{Coexistence in Child Nodes}
-	\begin{itemize}
-		\item Child of two nodes with coexistence has coexistence
-		\item Child of two nodes with no coexistence has coexistence
-		\item Child of a node with and a node with no coexistence has coexistence
-	\end{itemize}
+	\vspace{3em}
+	\centering
+	\begin{tikzpicture}[thick,scale=1,
+			every node/.style={
+					draw,rectangle,line width=0.4pt,
+					minimum height=2em,minimum width=2em,
+					rounded corners=1pt
+				}]
+		\path[draw=none] (0,0) -- (14,-3);
+		%
+		\coordinate (c1) at (4, -2.5);
+		\coordinate (a1) at (2.5, 0);
+		\coordinate (b1) at (5.5, 0);
+		\coordinate (c2) at (10, -2.5);
+		\coordinate (a2) at (8.5, 0);
+		\coordinate (b2) at (11.5, 0);
+		%
+		\node (a1) at (a1) {\only<2-7>{\tiny odd}};
+		\node (b1) at (b1) {\only<2-7>{\tiny odd}};
+		\only<3-7>{
+			\node[fill=yellow] (c1) at (c1) {\tiny even};
+			\draw[->] (a1) -- (c1);
+			\draw[->] (b1) -- (c1);
+		}
+		%
+		\only<4-7>{
+			\node[fill=yellow] (a2) at (a2) {\only<5-7>{\tiny even}};
+			\node (b2) at (b2) {\only<5-7>{\tiny odd}};
+		}
+		\only<6-7>{
+			\node (c2) at (c2) {\tiny odd};
+			\draw[->] (a2) -- (c2);
+			\draw[->] (b2) -- (c2);
+		}
+		%
+	\end{tikzpicture}
+
+	\vspace{3em}
+	\only<7>{
+		\begin{itemize}
+			\item Both parents with coexistence will never happen (for this structure)
+		\end{itemize}
+	}
 \end{frame}
 
 %%% Local Variables:
