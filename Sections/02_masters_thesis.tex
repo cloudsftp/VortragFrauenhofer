@@ -201,12 +201,13 @@
 \end{frame}
 
 \begin{frame}{Translation Type A (Symmetric Cycle)}
+	\vspace{3em}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-		\path[draw=none] (0,0) -- (12,2);
+		\path[draw=none] (0,0) -- (14,-3);
 		%
-		\coordinate (a) at (6, 0);
-		\coordinate (b) at (6, -2);
+		\coordinate (a) at (7, 0);
+		\coordinate (b) at (7, -2.5);
 		%
 		% A1B2C1D2 -> L1R2
 		%
@@ -214,8 +215,8 @@
 			\node (cycleA) at (a) {$\A^{1}\B^{2}\C^{1}\D^{2}$};
 		}
 		\only<2>{
-			\draw [decorate,decoration={brace,mirror}] (4.3, -0.8) -- (7.7, -0.8);
-			\node at (6, -1.5) {4-Syllable};
+			\draw [decorate,decoration={brace,mirror}] (5.3, -0.8) -- (8.7, -0.8);
+			\node at (7, -1.5) {4-Syllable};
 		}
 		\only<3>{
 			\node (cycleB) at (b) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
@@ -233,14 +234,14 @@
 			\node (cycleA) at (a) {$\L^{1}\R^{2}$};
 		}
 		\only<6>{
-			\draw [decorate,decoration={brace,mirror}] (5.0, -0.8) -- (7.0, -0.8);
-			\node at (6, -1.5) {2-Syllable};
+			\draw [decorate,decoration={brace,mirror}] (6.0, -0.8) -- (8.0, -0.8);
+			\node at (7, -1.5) {2-Syllable};
 		}
 		\only<7-8>{
 			\node (cycleB) at (b) {$\A^{1}\B^{2}$};
 		}
 		\only<8>{
-			\node at (8, -2) {???};
+			\node at (9, -2.5) {???};
 		}
 		\only<9>{
 			\node (cycleA) at (a) {$\L^{1}\R^{2}\L^{1}\R^{2}$};
@@ -266,18 +267,22 @@
 \end{frame}
 
 \begin{frame}{Translation Type B (Asymmetric Cycles)}
+	\vspace{3em}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-		\path[draw=none] (0,0) -- (12,2);
+		\path[draw=none] (0,0) -- (14,-3);
 		%
-		\coordinate (a) at (6, 0);
-		\coordinate (a_) at (6, -1.5);
-		\coordinate (b) at (6, -2);
-		\coordinate (c) at (6, -3.5);
+		\coordinate (a) at (7, 0);
+		\coordinate (b) at (7, -2.5);
 		\coordinate (al) at (3, 0);
-		\coordinate (ar) at (9, 0);
-		\coordinate (bl) at (3, -2);
-		\coordinate (br) at (9, -2);
+		\coordinate (ar) at (11, 0);
+		\coordinate (bl) at (3, -2.5);
+		\coordinate (br) at (11, -2.5);
+		%
+		\coordinate (al) at (3, 0);
+		\coordinate (ar) at (11, 0);
+		\coordinate (bl) at (3, -2.5);
+		\coordinate (br) at (11, -2.5);
 		%
 		% A1B2C3D4 -> L1R2L3R4
 		%
@@ -392,7 +397,7 @@
 	\end{tikzpicture}
 
 	\vspace{3em}
-	\only<6-7>{
+	\only<6-9>{
 		\begin{itemize}
 			\item Also true for odd $n = 2k + 1$
 		\end{itemize}
@@ -400,20 +405,21 @@
 \end{frame}
 
 \begin{frame}{Translation: No Coexistence when Number of 2-Syllables Odd}
+	\vspace{3em}
 	\centering
 	\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-		\path[draw=none] (0,0) -- (20,2);
+		\path[draw=none] (0,0) -- (14,-3);
 		%
 		\coordinate (al) at (3, 0);
-		\coordinate (ar) at (10, 0);
+		\coordinate (ar) at (11, 0);
 		\coordinate (bl) at (3, -2.5);
-		\coordinate (br) at (10, -2.5);
+		\coordinate (br) at (11, -2.5);
 		%
 		\only<1>{
 			\node (sigma) at (al) {$\sigma$};
 			\node (s2sigma) at (ar) {$s_{2}\left(\sigma\right)$};
 		}
-		\only<2-6>{
+		\only<2-7>{
 			\node (sigma) at (al) {$\sigma_{1}\sigma_{2}\ldots\sigma_{2k+1}$};
 			\node (s2sigma) at (ar) {$\sigma_{2}\ldots\sigma_{2k+1}\sigma_{1}$};
 		}
@@ -421,25 +427,33 @@
 			\node[scale=0.4] (phia) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right) t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2k+1}\right)$};
 			\node[scale=0.4] (phib) at (br) {$t\left(\sigma_{2}\sigma_{3}\right) \ldots t\left(\sigma_{2n}\sigma_{2k+1}\right) t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right)$};
 		}
-		\only<4-6>{
+		\only<4-7>{
 		\node[scale=0.6] (phia) at (bl) {$\phi_{1} \ldots \phi_{n} t(\sigma_{2k+1}\sigma_{1}) \phi'_{1} \ldots \phi'_{n}$};
 		\node[scale=0.6] (phib) at (br) {$\phi'_{1} \ldots \phi'_{n} \phi_{1} \ldots \phi_{n} t(\sigma_{2k+1}\sigma_{1})$};
 		}
 		\only<5>{
 			\draw[->] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$s_{4}^{k+1}$};
 		}
-		\only<6>{
+		\only<6-7>{
 			\draw[double equal sign distance] (phia) -- (phib) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
 		}
-		\only<1-6>{
+		\only<1-7>{
 			\draw[->] (sigma) -- (s2sigma) node[midway,above=0.2em,scale=0.5] {$s_{2}$};
 		}
-		\only<3-6>{
+		\only<3-7>{
 			\draw[->] (sigma) -- (phia) node[midway,right=0.5em,scale=0.5] {$T$};
 			\draw[->] (s2sigma) -- (phib) node[midway,right=0.5em,scale=0.5] {$T$};
 		}
 		%
 	\end{tikzpicture}
+
+	\vspace{3em}
+	\only<7>{
+		\begin{itemize}
+			\item[$\Rightarrow$] No coexistence
+			\item[$\Rightarrow$] Periods of translated cycle doubled
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Coexistence in Child Nodes}
