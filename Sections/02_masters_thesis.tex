@@ -179,11 +179,11 @@
 			\node (FB) at (7, 2) {Bifurcation Structure};
 
 			\node (HC) at (0, 0) {Cycles in Halved Model \\ $\L, \R$};
-			\node (HA) at (7, 0) {Period-adding Structure};
+			\node (HA) at (7, 0) {Period Adding Structure};
 
-			\draw[->] (FC) -- (HC) node[midway,right] {\tiny translate};
-			\draw[->] (HC) -- (HA) node[midway,above] {\tiny explained};
-			\draw[->] (HA) -- (FB) node[midway,right] {\tiny translate};
+			\draw[->] (FC) -- (HC) node[midway,right] {\tiny $T^{-1}$};
+			\draw[->] (HC) -- (HA) node[midway,above] {\tiny Period Adding Rules};
+			\draw[->] (HA) -- (FB) node[midway,right] {\tiny $T$};
 			\draw[->] (FC) -- (FB) node[midway,above] {\tiny ???};
 		\end{tikzpicture}
 	\end{center}
@@ -251,6 +251,18 @@
 		}
 		%
 	\end{tikzpicture}
+
+	\vspace{3em}
+	\only<4>{
+		\begin{itemize}
+			\item Remove redundancy if the cycle repeats
+		\end{itemize}
+	}
+	\only<9>{
+		\begin{itemize}
+			\item If we cannot pair all 2-Syllables $\Rightarrow$ Write the cycle twice
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Translation Type B (Asymmetric Cycles)}
@@ -277,7 +289,7 @@
 			\draw[->] (cycleA) -- (cycleB) node[midway,right=0.5em,scale=0.5] {$T^{-1}$};
 		}
 		%
-		\only<3-8>{
+		\only<3-7>{
 			\node (cycleAL) at (al) {$\A^{1}\B^{2}\C^{3}\D^{4}$};
 			\node (cycleBL) at (bl) {$\L^{1}\R^{2}\L^{3}\R^{4}$};
 			\node (cycleAR) at (ar) {$\A^{3}\B^{4}\C^{1}\D^{2}$};
@@ -285,7 +297,7 @@
 		\only<3-6>{
 			\draw[->] (cycleAL) -- (cycleBL) node[midway,right=0.5em,scale=0.5] {$T^{-1}$};
 		}
-		\only<4-8>{
+		\only<4-7>{
 			\node (cycleBR) at (br) {$\L^{3}\R^{4}\L^{1}\R^{2}$};
 		}
 		\only<4-6>{
@@ -294,10 +306,10 @@
 		\only<5>{
 			\draw[->] (cycleBL) -- (cycleBR) node[midway,above=0.2em,scale=0.5] {$s_{2}$};
 		}
-		\only<6-8>{
+		\only<6-7>{
 			\draw[double equal sign distance] (cycleBL) -- (cycleBR) node[midway,above=0.2em,scale=0.5] {$\equiv_{2}$};
 		}
-		\only<8>{
+		\only<7>{
 			\draw[->] (cycleBR) -- (cycleAR) node[midway,right=0.5em,scale=0.5] {$T$};
 			\draw[->] (cycleBL) -- (cycleAL) node[midway,right=0.5em,scale=0.5] {$T$};
 		}
@@ -305,7 +317,17 @@
 	\end{tikzpicture}
 
 	\vspace{3em}
-	\only<8>{
+	\only<2>{
+		\begin{itemize}
+			\item No repetition
+		\end{itemize}
+	}
+	\only<6>{
+		\begin{itemize}
+			\item Translations of twin cycles are $\equiv_{2}$ equivalent
+		\end{itemize}
+	}
+	\only<7>{
 		\begin{itemize}
 			\item[$\Rightarrow$] Check all $\equiv_{2}$ equivalent symbolic sequences
 		\end{itemize}
@@ -331,7 +353,7 @@
 			\node (sigma) at (al) {$\sigma_{1}\sigma_{2} \ldots \sigma_{n}$};
 			\node (s4sigma) at (ar) {$\sigma_{3} \ldots \sigma_{n}\sigma_{1}\sigma_{2}$};
 		}
-		\only<6-7>{
+		\only<6-9>{
 			\node (sigma) at (al) {$\sigma_{1}\sigma_{2} \ldots \sigma_{2k+1}$};
 			\node (s4sigma) at (ar) {$\sigma_{3} \ldots \sigma_{2k+1}\sigma_{1}\sigma_{2}$};
 		}
@@ -339,7 +361,7 @@
 			\node[scale=0.6] (phi) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{n-1}\sigma_{n}\right)$};
 			\node[scale=0.6] (s4phi) at (br) {$t\left(\sigma_{3}\sigma_{4}\right) \ldots t\left(\sigma_{n-1}\sigma_{n}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
 		}
-		\only<1-7>{
+		\only<1-9>{
 			\draw[->] (sigma) -- (s4sigma) node[midway,above=0.2em,scale=0.5] {$s_{4}$};
 		}
 		\only<4>{
@@ -349,14 +371,20 @@
 			\node[scale=0.5] (phi) at (bl) {$t\left(\sigma_{1}\sigma_{2}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right)  \ldots t\left(\sigma_{2k}\sigma_{2k+1}\right)$};
 			\node[scale=0.5] (s4phi) at (br) {$t\left(\sigma_{3}\sigma_{4}\right) \ldots t\left(\sigma_{2k+1}\sigma_{1}\right) \ldots t\left(\sigma_{2k}\sigma_{2k+1}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
 		}
-		\only<7>{
+		\only<7-9>{
 		\node[scale=0.6] (phi) at (bl) {$\phi_{1} \ldots \phi_{k} t\left(\sigma_{2k+1}\sigma_{1}\right) \phi'_{1}  \ldots \phi'_{k}$};
-		\node[scale=0.6] (s4phi) at (br) {$\phi_{1} \ldots t\left(\sigma_{2k+1}\sigma_{1}\right) \ldots t\left(\sigma_{2k}\sigma_{2k+1}\right)t\left(\sigma_{1}\sigma_{2}\right)$};
+		\node[scale=0.6] (s4phi) at (br) {$\phi_{2} \ldots \phi_{k} t\left(\sigma_{2k+1}\sigma_{1}\right) \phi'_{1} \ldots \phi'_{k}\phi_{1}$};
 		}
-		\only<5-7>{
+		\only<5>{
 			\draw[double equal sign distance] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
 		}
-		\only<3-7>{
+		\only<8>{
+			\draw[->] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$s_{4}$};
+		}
+		\only<9>{
+			\draw[double equal sign distance] (phi) -- (s4phi) node[midway,above=0.2em,scale=0.5] {$\equiv_{4}$};
+		}
+		\only<3-9>{
 			\draw[->] (sigma) -- (phi) node[midway,right=0.5em,scale=0.5] {$T$};
 			\draw[->] (s4sigma) -- (s4phi) node[midway,right=0.5em,scale=0.5] {$T$};
 		}
