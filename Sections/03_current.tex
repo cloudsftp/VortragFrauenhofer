@@ -117,11 +117,19 @@
 
 \begin{frame}{Proof of Symmetry --- Equations}
 	\begin{align*}
-		+1 \cdot e^{z_{2b}^{+}} - 1                              & = V_{ref}(\tau+ z_{2b}^{+}) + \chi_{c}                        \\[2em]
-		-1 \cdot e^{z_{2b}^{\dagger}} + 1                        & = \left| V_{ref}(\tau + z_{2b}^{\dagger}) + \chi_{c} \right|  \\
-		\Leftrightarrow \hspace{1em} -e^{z_{2b}^{\dagger}} + 1   & = -\left( V_{ref}(\tau + z_{2b}^{\dagger}) + \chi_{c} \right) \\
-		\Leftrightarrow \hspace{1.9em}  e^{z_{2b}^{\dagger}} - 1 & = V_{ref}(\tau + z_{2b}^{\dagger}) + \chi_{c}                 \\[3em]
+		\phantom{x} \hspace{3em}	 +1 \cdot e^{z_{2b}^{+}} - 1    & = V_{ref}(\tau+ z_{2b}^{+}) + \chi_{c} \hspace{7em} \phantom{x} \\[2em]
+		\only<2-5>{
+		-1 \cdot e^{z_{2b}^{\dagger}} + 1                        & = \left| V_{ref}(\tau + z_{2b}^{\dagger}) + \chi_{c} \right|    \\
+		}
+		\only<3-5>{
+		\Leftrightarrow \hspace{1em} -e^{z_{2b}^{\dagger}} + 1   & = -\left( V_{ref}(\tau + z_{2b}^{\dagger}) + \chi_{c} \right)   \\
+		}
+		\only<4-5>{
+		\Leftrightarrow \hspace{1.8em}  e^{z_{2b}^{\dagger}} - 1 & = V_{ref}(\tau + z_{2b}^{\dagger}) + \chi_{c}                   \\[3em]
+		}
+		\only<5>{
 		\Longrightarrow                                          & \quad z_{2b}^{\dagger}          = z_{2b}^{+}
+		}
 	\end{align*}
 \end{frame}
 
