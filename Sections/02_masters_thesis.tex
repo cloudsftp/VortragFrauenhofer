@@ -347,10 +347,10 @@
 		\item 2-Syllable: $\L^{n}\R^{m}$
 		\item 4-Syllable: $\A^{a}\B^{b}\C^{c}\D^{d}$
 	\end{itemize}
-	\vspace{3em}
+	\vspace{2em}
 	\begin{center}
 		\begin{tikzpicture}[thick,scale=1, every node/.style={font=\huge}]
-			\path[draw=none] (0,0) -- (14,-3);
+			\path[draw=none] (0,1) -- (14,-3);
 			%
 			\coordinate (a) at (3, 0);
 			\coordinate (b) at (11, 0);
@@ -361,12 +361,16 @@
 				\node (cycleA) at (a) {$\L^{a}\R^{b}\L^{c}\R^{d}$};
 				\node (cycleB) at (b) {$\A^{a}\B^{b}\C^{c}\D^{d}$};
 			}
-			\only<3-4>{
+			\only<3>{
 				\node (cycleA) at (a) {$\sigma_{1}\sigma_{2}$};
 				\node (cycleB) at (b) {$\phi_{1}$};
 			}
+			\only<4-5>{
+			\node (cycleA) at (a) {$\sigma_{2}\sigma_{3}$};
+			\node (cycleB) at (b) {$\phi'_{1}$};
+			}
 			%
-			\only<2-4>{
+			\only<2-5>{
 				\draw[->] (cycleA) -- (cycleB) node[midway,above=0.2em,scale=0.5] {$t$};
 			}
 			%
@@ -374,7 +378,7 @@
 	\end{center}
 
 	\vspace{-5em}
-	\only<4>{
+	\only<5>{
 		Equivalence:
 		\begin{itemize}
 			\item Halved: $\sigma \equiv_{2} \rho \Leftrightarrow \sigma = s_{2}^{p}(\rho)$
